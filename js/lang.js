@@ -2,10 +2,14 @@ function init() {
   // get image
   var image = document.getElementById('image')
   // get sequence
-  var seq = pullSequence(900)
-  var plot = dotplot.pattern(seq.split(''))
-  // set img
-  image.src = dotplot.dataUri(plot)
+  gatherSequence(function (dna) {
+    // substring to get sequence
+    var id = Math.floor(Math.random() * (dna.length - 900))
+    var seq = dna.substring(id, id + 900)
+    var plot = dotplot.pattern(seq.split(''))
+    // set img
+    image.src = dotplot.dataUri(plot)
+  })
 }
 
 function pullSequence(len) {
