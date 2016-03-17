@@ -2,15 +2,14 @@ function init() {
   // get image
   var image = document.getElementById('image')
   // get sequence
-  var seq = pullSequence(300, 800)
+  var seq = pullSequence(900)
   var plot = dotplot.pattern(seq.split(''))
   // set img
   image.src = dotplot.dataUri(plot)
 }
 
-function pullSequence(min, max) {
-  // compute len
-  var len = Math.floor(Math.random() * Math.abs(max - min)) + min
+function pullSequence(len) {
+  // create seq
   var seq = ''
   // return sequence
   for (var i = 0; i < len; i++) {
